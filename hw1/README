@@ -1,0 +1,82 @@
+=====================================
+Chenyu You (cy346)
+=====================================
+
+
+------------------------------------------
+PART A
+------------------------------------------
+Part A1:
+	UNIGRAM natural					-13.76640881704451
+	BIGRAM natural that 			-4.058893689053568
+	TRIGRAM natural that he			-1.5849625007211563
+
+Part A2:
+	A2.uni.txt 	perplexity:		1052.486585902116
+	A2.bi.txt 	perplexity: 	53.89847611982476
+	A3.tri.txt 	perplexity: 	5.710679308201471
+
+Part A3:
+	The perplexity is 12.551609488576803
+
+Part A4:
+	Yes. 
+	For unigrams: the model does not depend on any contexts. The perplexity is as high as expected.
+	For bigrams: the bigram model conditioned on one word achieve the reasonable perplexity.
+	For trigrams: the trigram model achieve the lowest value.
+	The linear interpolated model use the nth-order model and (n-1)th-order smoothed model. From my perspective, the value will be between the score betwwen bigram and trigram. The value relys on sparcity and all prior information (uni, bi, tri).
+
+
+Part A5:
+	python3 perplexity.py output/Sample1_scored.txt data/Sample1.txt
+	The perplexity is 11.167028915779872
+	python3 perplexity.py output/Sample2_scored.txt data/Sample2.txt
+	The perplexity is 1611240282.4444103
+
+	Given these two perplexities, the Sample1 should belong to Brown dataset since it achieve relatively low perplexity on a more predictable corpora, which indicates that there exists high probability to predict the sample. On the other hand, the words in Sample are unseen since MINUS_INFINITY_SENTENCE_LOG_PROB is -1000.
+
+------------------------------------------
+PART B
+------------------------------------------
+Part B2:
+	TRIGRAM CONJ ADV ADP 			-2.9755173148006566
+	TRIGRAM DET NOUN NUM 			-8.97005261629889
+	TRIGRAM NOUN PRT PRON			-11.085472459181283
+
+PART B4:
+	**								0.0
+	Night NOUN						-13.881902599411108
+	Place VERB						-15.453881489107427
+	prime ADJ 						-10.69483271828692
+	STOP STOP 						0.0
+	_RARE_ VERB						-3.177320850889013
+
+PART B5:
+	Percent correct tags: 93.32499462544219
+
+PART B6:
+	Percent correct tags: 88.03994762249106
+
+------------------------------------------
+PART C
+------------------------------------------
+Percent correct tags: 84.49340990538452
+
+The Spanish dataset takes longer to evaluate because it may be larger. Furthermore, the second reason is that we did not train on that data.
+
+Context of languages and orders of speech may improve tagging accuracy that are
+not captured by the tagged training sets.
+
+------------------------------------------
+PART D
+------------------------------------------
+
+Test accuracy: 96.691
+The accuracy achieved by neutral methods are higher than HMM based tagger.
+
+------------------------------------------
+RUNNING TIME
+------------------------------------------
+Part A Time: 10.554162 sec
+Part B time: 19.196061 sec
+Part C time: 243.34989 sec
